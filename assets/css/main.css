@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "IranSans";
+  src: url("../fonts/belgant-aesthetic.otf");
+  font-style: normal;
+  font-display: swap;
+
+  /* unicode-range: U+0020-007F; */
+}
+
+body {
+  -webkit-overflow-scrolling: touch;
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+* {
+  font-family: "Roboto", "IranSans";
+}
+* {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: #faf0ca#ff1654;
+}
+
+*::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+
+@media only screen and (max-width: 767px) {
+  *::-webkit-scrollbar {
+    width: 3px;
+    height: 3px;
+  }
+}
+::-webkit-scrollbar-button {
+  width: 0px;
+  height: 0px;
+}
+::-webkit-scrollbar-thumb {
+  background: #faf0ca;
+  border: 0px none #ffffff;
+  border-radius: 86px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #a0000b;
+}
+::-webkit-scrollbar-thumb:active {
+  background: #a0000b;
+}
+::-webkit-scrollbar-track {
+  background: #ff1654;
+  border: 0px none #ffffff;
+  border-radius: 100px;
+}
+::-webkit-scrollbar-track:hover {
+  background: #faf0ca;
+}
+::-webkit-scrollbar-track:active {
+  background: #faf0ca;
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
