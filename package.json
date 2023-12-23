@@ -12,14 +12,21 @@
   "devDependencies": {
     "@hypernym/nuxt-gsap": "^2.4.2",
     "@nuxt/devtools": "latest",
+    "@nuxtjs/i18n": "^8.0.0-rc.11",
     "autoprefixer": "^10.4.16",
     "nuxt": "^3.7.4",
     "postcss": "^8.4.31",
+    "sass": "^1.69.5",
     "tailwindcss": "^3.3.3",
+    "vite-plugin-vuetify": "^2.0.1",
     "vue": "^3.3.4",
-    "vue-router": "^4.2.5"
+    "vue-router": "^4.2.5",
+    "vuetify": "^3.4.8"
   },
   "engines": {
     "node": ">=20.9.0"
+  },
+  "dependencies": {
+    "@mdi/font": "^7.3.67"
   }
 }

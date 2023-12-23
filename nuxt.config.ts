@@ -1,5 +1,19 @@
+import vuetify, { transformAssetUrls } from "vite-plugin-vuetify";
+
 export default defineNuxtConfig({
-  modules: ["@hypernym/nuxt-gsap"],
+  build: {
+    transpile: ["vuetify"],
+  },
+  modules: [
+    (_options, nuxt) => {
+      nuxt.hooks.hook("vite:extendConfig", (config) => {
+        // @ts-expect-error
+        config.plugins.push(vuetify({ autoImport: true }));
+      });
+    },
+    "@nuxtjs/i18n",
+    "@hypernym/nuxt-gsap",
+  ],
 
   gsap: {
     extraPlugins: {
@@ -10,9 +24,14 @@ export default defineNuxtConfig({
 
   pages: true,
   css: ["~/assets/css/main.css"],
-  // build: {
-  //   transpile: ["primevue"],
-  // },
+
+  vite: {
+    vue: {
+      template: {
+        transformAssetUrls,
+      },
+    },
+  },
   postcss: {
     plugins: {
       tailwindcss: {},

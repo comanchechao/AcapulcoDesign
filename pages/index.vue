@@ -1,336 +1,696 @@
+<!-- <i18n lang="yaml">
+en:
+  acapulcodesign: "Acapulco Design"
+  welcome: "Welcome"
+  to: "To"
+  acapulco: "Acapulco Design"
+  design: "Design"
+  lighters: "Lighters"
+  showMe: "Show Me!"
+  acapulcoShirt: "Acapulco Shirt"
+  acapulcoMatchboxes: "Custom Matchboxes"
+  acapulcoShorts: "Acapulco Shorts"
+  acapulcoHoodies: "Acapulco Hoodies"
+  collections: "Collections"
+  weAreA: "We are a"
+  creativeTeam: "Creative Team"
+  based: "Based in Iran"
+  if: "If you want to know more; maybe get a cup of coffee (or tea), you can!"
+  aboutUs: "Learn more about us"
+fa:
+  acapulcodesign: "خوش اومدید"
+  welcome: "به"
+  to: "آکاپلکو دیزاین"
+  acapulco: "آکاپلکو دیزاین"
+  design: "دیزاین"
+  lighters: "فندک ها"
+  showMe: "!نشونم بده"
+  acapulcoShirt: "پیراهن آلکاپلکو"
+  acapulcoMatchboxes: "کبریت های آکاپلکو"
+  acapulcoHoodies: "هودی های اکاپلکو"
+  acapulcoShorts: "شلوارک های آکاپلکو"
+  collections: "کالکشن ها"
+  weAreA: "ما یک"
+  creativeTeam: "تیم خلاق"
+  based: "از ایران هستیم"
+  if: " اگر میخواین ما رو بیشتر بشناسین؛ شاید یه فنجون قهوه (یا چای) باهم بزنیم، میتونین"
+  aboutUs: "بیشتر مارو بشناسین"
+</i18n> -->
+
 <template>
-  <div class="h-full w-screen bg-mainWhite overflow-hidden">
-    <div class="w-screen LoadingDiv h-screen flex items-center justify-center">
-      <img src="../assets/images/Logo.gif" alt="" />
-    </div>
-    <Navbar />
-    <div
-      class="h-auto mb-10 w-full flex items-center justify-center pt-20 px-72"
-    >
-      <div
-        class="w-full flex panelContainer text-darkPurple flex-col items-center h-full bg-mainWhite rounded-md"
-      >
-        <h2
-          :onmouseleave="endAnimation"
-          :onmouseover="startAnimation"
-          class="text-7xl italic Hi cursor-pointer"
+  <div id="main" class="w-screen">
+    <LazyNavbar id="navbar" class="navbar"> </LazyNavbar>
+
+    <div class="w-screen overflow-hidden">
+      <div class="grid place-items-center w-screen">
+        <div
+          class="w-screen mt-20 h-dialog flex flex-col align-center justify-between md:flex-row lg:flex-row lg:h-screen lg:justify-around"
         >
-          Hi!
-        </h2>
-        <div class="flex lg:flex-row flex-col items-center lg:space-x-6">
-          <h2 class="text-7xl italic We">We Are</h2>
-          <h2 class="text-8xl Acapulco text-center">Acapulco Crew</h2>
+          <img
+            class="treePicture2 object-contain lg:object-cover h-56 drop-shadow-2xl rotate-180 transform lg:translate-x-36 md:-rotate-90 lg:rotate-90 z-10"
+            src="~/assets/images/tree2.webp"
+            alt=""
+          />
+
+          <h1
+            class="flex justify-center align-center NavbarTrigger acapulco tracking-wider text-6xl md:text-9xl lg:text-10xl text-center leading-none text-white"
+          >
+            {{ $t("acapulco") }}
+          </h1>
+          <img
+            class="treePicture object-contain h-56 transform lg:-translate-x-36 md:rotate-90 lg:rotate-90 drop-shadow-2xl"
+            src="~/assets/images/tree.webp"
+            alt=""
+          />
         </div>
-      </div>
-    </div>
-    <div class="w-full h-auto p-10 flex items-center flex-col justify-center">
-      <h1
-        class="bg-mainGreen text-center p-3 text-6xl text-darkPurple Creative"
-      >
-        We are a Creative Team with an Eye for
-        <span class="Acapulco">Color</span>
-      </h1>
-      <h1 class="p-3 text-5xl text-darkPurple">
-        Our team consists of two
-        <span class="text-mainPurple">FullStack Developers</span> and a
-        <span class="text-mainRed">Digital Artist</span>
-      </h1>
-    </div>
-    <div
-      class="flex h-full lg:px-20 lg:flex-row flex-col w-full justify-around items-center lg:space-y-0 space-y-5"
-    >
-      <div
-        class="flex flex-col KeslerDiv w-full lg:w-1/3 h-full justify-start items-center space-y-2"
-      >
-        <a
-          href="https://instagram.com/famousKesler/"
-          class="flex flex-col justify-center items-center space-y-2 lg:space-y-4"
+
+        <div
+          class="flex h-96 w-screen justify-center align-center firstContainer content"
         >
-          <img
-            class="w-72 object-contain Kesler cursor-pointer lg:mb-4"
-            src="../assets/images/Kesler.webp"
-            alt=""
-          />
-          <h1
-            class="font-mainFont font-black text-3xl lg:text-5xl text-mainBlue"
-          >
-            Kesler
-          </h1>
-          <h3
-            class="font-mainFont font-extralight text-3xl lg:text-4xl text-mainPurple"
-          >
-            Digital Artist
-          </h3>
-        </a>
-      </div>
-      <div
-        class="flex flex-col ChaoDiv w-full lg:w-1/3 h-full justify-start items-center space-y-2"
-      >
-        <a
-          href="https://instagram.com/comanchechao/"
-          class="flex flex-col justify-center items-center space-y-2 lg:space-y-4"
+          <div class="lg:h-full h-3/4 flex justify-center align-center">
+            <h2
+              class="h2-home lg:px-80 text-center capitalize font-black leading-3 text-6xl md:text-7xl lg:text-9xl"
+            >
+              <span class="text-mainRed animatedSpans">
+                {{ $t("welcome") }} </span
+              ><span class="animatedSpans">{{ $t("to") }}</span>
+              <strong class="text-goldie animatedSpans"
+                >{{ $t("acapulcodesign") }}
+              </strong>
+              <!-- <span class="text-goldie animatedSpans">
+                  {{ $t('design') }}</span
+                > -->
+            </h2>
+          </div>
+        </div>
+
+        <div
+          class="lg:mt-28 h-screen w-screen flex flex-col lg:flex-row align-center justify-center space-y-9 p-14 lg:p-48 justify-self-stretch forthContainer content"
         >
-          <img
-            class="w-72 object-contain Chao cursor-pointer"
-            src="../assets/images/Chao.webp"
-            alt=""
-          />
-          <h1
-            class="font-mainFont font-black text-3xl lg:text-5xl text-mainBlue"
+          <div class="textDiv flex flex-col order-last">
+            <div class="flex-row-reverse align-center justify-center">
+              <h3
+                class="text-6xl lg:text-7xl p-5 text-center flex justify-center align-end"
+              >
+                {{ $t("lighters") }}
+                <img
+                  class="h-24 lg:h-48 ml-2 object-contain"
+                  src="../assets/images/acapulcoLighterSmall.webp"
+                />
+              </h3>
+            </div>
+            <div class="self-center">
+              <NuxtLink to="/productList">
+                <button
+                  class="learnMoreBtn bg-pink-600"
+                  @click="selectCategory('Lighters')"
+                >
+                  <span class="learnMoreText">{{ $t("showMe") }}</span>
+                </button>
+              </NuxtLink>
+            </div>
+          </div>
+
+          <div
+            class="pictureDiv lg:order-last cursor-pointer bg-red-200 shadow-2xl"
           >
-            Chao
-          </h1>
-          <h3
-            class="font-mainFont font-extralight text-3xl lg:text-4xl text-mainPurple"
-          >
-            FullStack Developer
-          </h3>
-        </a>
-      </div>
-      <div
-        class="flex flex-col GreezDiv w-full lg:w-1/3 h-full justify-center items-center"
-      >
-        <a
-          href="https://instagram.com/lemon_greez"
-          class="flex flex-col justify-center items-center space-y-2 lg:space-y-4"
+            <img
+              src="~/assets/images/lighter-svg.webp"
+              class="object-fill sm:w-96 sm:h-96 lg:max-w-lg md:max-w-2xl drop-shadow-2xl m-auto pictureDivImages"
+              alt=""
+            />
+          </div>
+        </div>
+
+        <div
+          class="h-screen w-screen flex flex-col lg:flex-row align-center justify-center space-y-2 p-14 lg:p-48 justify-self-stretch thirdContainer content"
         >
-          <img
-            class="w-72 object-contain Greez cursor-pointer"
-            src="../assets/images/Greez.webp"
-            alt=""
-          />
-          <h1
-            class="font-mainFont OurWorkT font-black my-4 text-3xl lg:text-5xl text-mainBlue"
+          <div class="pictureDiv lg:order-first cursor-pointer bg-red-200">
+            <img
+              src="~/assets/images/shirtacapulco.webp"
+              class="object-fill sm:w-96 sm:h-96 lg:max-w-lg md:max-w-2xl drop-shadow-2xl m-auto relative pictureDivImages"
+              alt=""
+            />
+          </div>
+          <div class="textDiv flex flex-col order-last">
+            <div class="flex-row-reverse align-center justify-center">
+              <h3
+                class="text-4xl sm:font-bold lg:text-7xl lg:p-5 text-center my-3 flex justify-center align-end"
+              >
+                {{ $t("acapulcoShirt") }}
+                <img
+                  class="h-24 lg:h-48 ml-2 object-contain"
+                  src="../assets/images/acapulcoShirtSmall.webp"
+                />
+              </h3>
+              <!-- <img class="transform scale-75" src="~/assets/images/fsdf.png" alt="" /> -->
+            </div>
+            <div class="self-center">
+              <NuxtLink to="/productList">
+                <button
+                  class="learnMoreBtn bg-Cyan-400"
+                  @click="selectCategory('Shirts')"
+                >
+                  <span class="learnMoreText">{{ $t("showMe") }}</span>
+                </button>
+              </NuxtLink>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="h-screen w-screen flex flex-col lg:flex-row align-center justify-center space-y-6 p-14 lg:p-48 justify-self-stretch forthContainer content"
+        >
+          <div class="textDiv flex flex-col order-last">
+            <div class="flex-row-reverse align-center justify-center">
+              <h3
+                class="text-4xl sm:font-bold lg:text-7xl p-5 text-center flex justify-center align-end"
+              >
+                {{ $t("acapulcoMatchboxes") }}
+                <img
+                  class="h-24 lg:h-48 ml-1 object-contain"
+                  src="../assets/images/matchbox-small.webp"
+                />
+              </h3>
+            </div>
+            <div class="self-center">
+              <NuxtLink to="/productList">
+                <button
+                  class="learnMoreBtn bg-red-700"
+                  @click="selectCategory('Matchboxes')"
+                >
+                  <span class="learnMoreText text-white">{{
+                    $t("showMe")
+                  }}</span>
+                </button>
+              </NuxtLink>
+            </div>
+          </div>
+          <div
+            class="pictureDiv lg:order-last cursor-pointer bg-red-200 shadow-2xl"
           >
-            Greez
-          </h1>
-          <h3
-            class="font-mainFont font-extralight text-3xl lg:text-4xl text-mainPurple"
-          >
-            FullStack Developer
-          </h3>
-        </a>
-      </div>
-    </div>
-    <div
-      class="relative flex h-44 mt-12 w-screen justify-center items-center NavbarTrigger logo"
-    >
-      <img
-        class="absolute thirdPic object-contain w-44"
-        src="../assets/images/logo-second.webp"
-        alt=""
-      />
-      <img
-        class="absolute firstPic object-contain w-44"
-        src="../assets/images/logo-third.webp"
-        alt=""
-      />
-      <img
-        class="absolute secondPic object-contain w-44"
-        src="../assets/images/logo-forth.webp"
-        alt=""
-      />
-      <img
-        class="absolute forthPic object-contain w-44"
-        src="../assets/images/logo-first.webp"
-        alt=""
-      />
-    </div>
-    <div
-      class="flex flex-col items-center h-full w-full my-24 space-y-28 justify-center"
-    >
-      <h2 class="text-8xl OurWork text-center">Our Work :</h2>
-      <div
-        class="h-full w-full flex lg:flex-row flex-col items-center justify-around px-24 my-10"
-      >
-        <h2 class="text-6xl w-1/2 text-center font-bold">Acapulco Design</h2>
-        <div class="w-1/2 h-72 bg-mainRed rounded-md"></div>
-      </div>
-      <div
-        class="h-full w-full flex lg:flex-row flex-col items-center justify-around px-24 my-10"
-      >
-        <div class="w-1/2 h-72 bg-mainGreen rounded-md"></div>
-        <h2 class="text-6xl w-1/2 text-center font-bold">Hocus Pocus</h2>
-      </div>
-      <div
-        class="h-full w-full flex lg:flex-row flex-col items-center justify-around px-24 my-10"
-      >
-        <h2 class="text-6xl w-1/2 text-center font-bold">Greez EyeWear</h2>
-        <div class="w-1/2 h-72 bg-mainPurple rounded-md"></div>
-      </div>
-      <div
-        class="h-full w-full flex lg:flex-row flex-col items-center justify-around px-24 my-10"
-      >
-        <div class="w-1/2 h-72 bg-mainYellow rounded-md"></div>
-        <h2 class="text-6xl w-1/2 text-center font-bold">Boutak</h2>
-      </div>
-      <div
-        class="h-full w-full flex lg:flex-row flex-col items-center justify-around px-24 my-10"
-      >
-        <h2 class="text-6xl w-1/2 text-center font-bold">Punkey Monkey</h2>
-        <div class="w-1/2 h-72 bg-mainPink rounded-md"></div>
+            <img
+              src="~/assets/images/matchbox.webp"
+              class="object-fill sm:w-96 sm:h-96 lg:max-w-lg md:max-w-2xl drop-shadow-2xl m-auto pictureDivImages"
+              alt=""
+            />
+          </div>
+        </div>
+        <div
+          class="h-screen w-screen flex flex-col lg:flex-row align-center justify-center space-y-2 p-14 lg:p-48 justify-self-stretch thirdContainer content"
+        >
+          <div class="pictureDiv lg:order-first cursor-pointer bg-red-200">
+            <img
+              src="~/assets/images/short.webp"
+              class="object-fill sm:w-96 sm:h-96 lg:max-w-lg md:max-w-2xl drop-shadow-2xl m-auto relative pictureDivImages"
+              alt=""
+            />
+          </div>
+
+          <div class="textDiv flex flex-col order-last">
+            <div class="flex-row-reverse align-center justify-center">
+              <h3
+                class="text-4xl sm:font-bold lg:text-7xl lg:p-5 text-center my-3 flex justify-center align-end"
+              >
+                {{ $t("acapulcoShorts") }}
+                <img
+                  class="h-24 h lg:h-24 ml-2 object-contain"
+                  src="../assets/images/acapulcoShortSmall.webp"
+                />
+              </h3>
+              <!-- <img class="transform scale-75" src="~/assets/images/fsdf.png" alt="" /> -->
+            </div>
+            <div class="self-center">
+              <NuxtLink to="/productList">
+                <button
+                  class="learnMoreBtn bg-yellow-500"
+                  @click="selectCategory('Shorts')"
+                >
+                  <span class="learnMoreText">{{ $t("showMe") }}</span>
+                </button>
+              </NuxtLink>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="h-screen w-screen flex flex-col lg:flex-row align-center justify-center space-y-2 p-14 lg:p-48 justify-self-stretch thirdContainer content"
+        >
+          <!-- <h1
+              class="font-mainFont lg:self-end rounded-full py-1 lg:py-2 comingSoon px-8 text-mainBlue bg-goldie text-2xl lg:text-3xl font-bold"
+            >
+              {{ $t('comingSoon') }}
+            </h1> -->
+
+          <div class="textDiv flex flex-col order-last">
+            <div class="flex-row-reverse align-center justify-center">
+              <h3
+                class="text-4xl sm:font-bold lg:text-7xl text-center flex justify-center align-end my-4"
+              >
+                {{ $t("acapulcoHoodies") }}
+                <img
+                  class="h-24 lg:h-48 ml-2 object-contain"
+                  src="../assets/images/acapulcoHoodieSmall.webp"
+                />
+              </h3>
+              <!-- <img
+                  src="~/assets/images/Hoodie.png"
+                  class="transform scale-95 object-contain lg:scale-100"
+                  alt=""
+                /> -->
+            </div>
+            <div class="self-center">
+              <NuxtLink to="/productList">
+                <button
+                  class="learnMoreBtn bg-LightBlue-300"
+                  @click="selectCategory('Hoodies')"
+                >
+                  <span class="learnMoreText">{{ $t("showMe") }}</span>
+                </button>
+              </NuxtLink>
+            </div>
+          </div>
+          <div class="pictureDiv lg:order-last cursor-pointer bg-red-200">
+            <img
+              src="~/assets/images/Hoodie.webp"
+              class="object-fill sm:w-96 sm:h-96 lg:max-w-lg md:max-w-2xl drop-shadow-2xl m-auto relative pictureDivImages"
+              alt=""
+            />
+          </div>
+        </div>
+
+        <div
+          class="h-screen fifthContainer flex flex-col lg:flex-row align-center justify-center space-y-2 content p-14 lg:p-48 justify-self-stretch"
+        >
+          <div class="pictureDiv lg:order-first cursor-pointer bg-red-200">
+            <img
+              src="~/assets/images/collection.webp"
+              class="object-fill sm:w-96 sm:h-96 lg:max-w-lg md:max-w-2xl drop-shadow-2xl m-auto relative pictureDivImages"
+              alt=""
+            />
+          </div>
+
+          <div class="textDiv flex flex-col order-last">
+            <div class="flex-row-reverse align-center justify-center">
+              <h3
+                class="text-6xl p-5 text-center my-3 flex justify-center align-end"
+              >
+                {{ $t("collections") }}
+                <img
+                  class="h-24 lg:h-48 ml-2 object-contain"
+                  src="../assets/images/acapulcoCollectionSmall.webp"
+                />
+              </h3>
+              <!-- <img class="transform scale-75" src="~/assets/images/fsdf.png" alt="" /> -->
+            </div>
+            <div class="self-center">
+              <NuxtLink to="/productList">
+                <button
+                  class="learnMoreBtn bg-Lime-500"
+                  @click="selectCategory('Collections')"
+                >
+                  <span class="learnMoreText">{{ $t("showMe") }}</span>
+                </button>
+              </NuxtLink>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="w-screen lg:p-44 flex align-center h-screen lg:h-screen grid-row-2 justify-center sixthContainer content"
+        >
+          <div class="flex flex-row flex-wrap w-5/6 h-2/6 justify-center">
+            <h1
+              class="introText capitalize text-5xl lg:text-7xl text-center bg-mainGreen p-3"
+            >
+              {{ $t("weAreA") }}
+              <span class="text-Indigo-700"> {{ $t("creativeTeam") }} </span>
+              {{ $t("based") }}
+            </h1>
+            <h3
+              class="px-2 learnMore font-bold text-4xl lg:text-6xl py-5 text-center"
+            >
+              {{ $t("if") }}
+              <nuxt-link
+                to="/aboutUs"
+                class="font-bold cursor-pointer aboutUsText hover:underline hover:hue-rotate-60"
+              >
+                {{ $t("aboutUs") }}
+              </nuxt-link>
+            </h3>
+            <!-- <div class="h-20 w-12 m-auto mt-12">
+                <img
+                  src="~/assets/images/arrow.png"
+                  class="object-contain"
+                  alt=""
+                />
+              </div> -->
+          </div>
+        </div>
+        <div
+          v-show="scY > 320"
+          id="pagetop"
+          class="fixed right-0 bottom-0 cursor-pointer arrow"
+          @click="toTop"
+        >
+          <div class="lg:h-20 lg:w-12 h-16 w-10 mb-9 mr-5">
+            <img
+              src="~/assets/images/arrow.png"
+              class="object-contain"
+              alt=""
+            />
+          </div>
+        </div>
+        <LazyFooter />
       </div>
     </div>
   </div>
 </template>
 
-<script setup>
-import { gsap } from "gsap";
+<!-- <script>
+import LazyHydrate from "vue-lazy-hydration";
 
-import { onMounted } from "vue";
+export default {
+  name: "IndexPage",
+  components: {
+    LazyHydrate,
+    Footer: () => import("../layouts/TheFooter.vue"),
+    Navbar: () => import("../layouts/TheNavbar.vue"),
+  },
+  transition: {
+    mode: "out-in",
+    css: false,
 
-const startAnimation = () => {
-  gsap.to(".Hi", { x: 27, ease: "Linear.easeNone", duration: 0.2 });
-};
-const endAnimation = () => {
-  gsap.to(".Hi", { x: 0, ease: "Linear.easeNone", duration: 0.2 });
-};
-onMounted(() => {
-  const TL = gsap.timeline();
-  TL.to(".LoadingDiv", {
-    display: "none",
-  });
-  TL.from(".Hi", {
-    x: -50,
-    opacity: 0,
-    ease: "Linear.easeNone",
-    duration: 0.6,
-    delay: 1.6,
-  });
-  TL.from(".We", {
-    x: -50,
-    opacity: 0,
-    ease: "Linear.easeNone",
-    duration: 0.5,
-  });
-  TL.from(".Acapulco", {
-    y: 50,
-    opacity: 0,
-    ease: "Linear.easeNone",
-    duration: 0.5,
-  });
-  TL.from(".Creative", {
-    opacity: 0,
-    ease: "Linear.easeNone",
-    duration: 0.5,
-  });
-  gsap.from(".logo", {
-    rotation: 360 * 7,
-    duration: 0.2,
-    ease: "expo.out",
-    scrollTrigger: {
-      start: "top bottom",
-      end: "+=8000",
-      scrub: 0.2,
-      trigger: ".panelContainer",
+    beforeEnter(el) {
+      this.$gsap.set(el, { opacity: 0 });
     },
-  });
-  gsap.from(".OurWork", {
-    opacity: 0,
-    y: 60,
-    duration: 1,
-    ease: "power4.out",
-    scrollTrigger: {
-      trigger: ".OurWork",
-      start: "top top",
-      end: "+=500",
-      markers: true,
-      toggleActions: "play none none reverse",
+    enter(el, done) {
+      this.$gsap.to(el, 1, { opacity: 1 });
+      done();
     },
-  });
-});
-</script>
+    leave(el, done) {
+      this.$gsap.to(el, 1, { opacity: 0 });
+      done();
+    },
+  },
+  data() {
+    return {
+      scTimer: 0,
+      selectedCategory: "",
+      scY: 0,
+    };
+  },
+  computed: {},
+  mounted() {
+    this.logoApearAnimation();
+    window.addEventListener("scroll", this.handleScroll);
+    this.animatePictureDiv();
+    this.animateOnScroll();
+  },
+  methods: {
+    selectCategory(selected) {
+      this.$store.commit("Changecategory", selected);
+    },
+    logoApearAnimation() {
+      const tl = this.$gsap.timeline();
+
+      tl.from(".firstPic", 1.5, {
+        opacity: 0,
+        ease: "expo.out",
+        delay: 2,
+      });
+      tl.from(".secondPic", 1, {
+        opacity: 0,
+        ease: "expo.out",
+      });
+      tl.from(".thirdPic", 1.5, {
+        opacity: 0,
+        ease: "expo.out",
+      });
+    },
+    handleScroll() {
+      if (this.scTimer) return;
+      this.scTimer = setTimeout(() => {
+        this.scY = window.scrollY;
+        clearTimeout(this.scTimer);
+        this.scTimer = 0;
+      }, 100);
+    },
+    toTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    },
+    animatePictureDiv() {
+      const gsap = this.$gsap;
+      const pictureDivs = this.$gsap.utils.toArray(".pictureDiv");
+      const tl = gsap.timeline();
+      pictureDivs.forEach((pictureDiv) => {
+        tl.from(pictureDiv, {
+          opacity: 0,
+          y: -90,
+          scale: 1.5,
+          duration: 0.8,
+          ease: "Sine.easeOut",
+          scrollTrigger: {
+            trigger: pictureDiv,
+
+            start: "top bottom",
+            end: "top center",
+            toggleActions: "play none none reverse",
+          },
+        });
+      });
+    },
+
+    animateOnScroll() {
+      const spans = this.$gsap.utils.toArray(".animatedSpans");
+      spans.forEach((span) => {
+        this.$gsap.fromTo(
+          span,
+          {
+            y: 700,
+            scale: 1.5,
+            opacity: 0,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            ease: "Sine.easeOut",
+            scrollTrigger: {
+              scrub: 0.5,
+              start: "top bottom",
+              end: "top 50%",
+              trigger: span,
+              stagger: 0.1,
+
+              toggleActions: "play reverse  none none",
+            },
+          }
+        );
+      });
+
+      const contents = this.$gsap.utils.toArray(".content");
+      contents.forEach((content) => {
+        this.$gsap.fromTo(
+          content,
+          {
+            y: 180,
+            opacity: 0,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            ease: "Power1.easeInOut",
+            scrollTrigger: {
+              start: "top bottom",
+              end: "top center",
+              trigger: content,
+              scrub: "0.2",
+              toggleActions: "play reverse  none none",
+            },
+          }
+        );
+      });
+    },
+  },
+};
+</script> -->
 
 <style scoped>
-@font-face {
-  font-family: "Oxygen";
-  src: url("../assets/fonts/ThunderDemo.ttf");
-  font-style: normal;
-  font-display: swap;
-
-  /* unicode-range: U+0020-007F; */
+.aboutUsText {
+  color: #32005c;
+  transition: ease-in-out 0.3s;
+}
+.aboutUsText:hover {
+  color: #ff4a68;
+}
+.aboutUsText:active {
+  color: #ff758c;
+  scale: 0.8;
+}
+.arrow {
+  transition: ease-in-out 0.2s;
+  cursor: pointer;
+}
+.arrow:hover {
+  filter: brightness(1.3);
+}
+.arrow:active {
+  filter: brightness(0.5);
+  transform: scale(0.9);
+}
+.animatedSpans {
+  font-family: "Roboto Slab", "Estedad";
+}
+.content {
+  opacity: 0;
 }
 
-.Acapulco {
-  font-family: "Oxygen";
-  background-image: repeating-linear-gradient(
-    to left,
-    #f01197 0%,
-    #722ef1 10%,
-
-    #4800f1 15%,
-    #3602f2 29%,
-    #c078f0 67%,
-    #de4b9c 100%
-  );
-  background-clip: border-box;
-  background-size: 200% auto;
-  color: #fff;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: textclip 6s linear infinite;
-  display: inline-block;
+.secondContainer,
+.thirdContainer,
+.forthContainer,
+.fifthContainer {
+  font-family: "Yanone Kaffeesatz", "Rezvan";
+  color: #120129;
 }
 
-@keyframes textclip {
-  to {
-    background-position: 200% center;
+/* .seventhContainer {
+  width: 100vw;
+  height: 60vh;
+} */
+
+.introText {
+  /* font-size: 3.6em; */
+  font-family: "Roboto Slab", "Rezvan";
+  /* line-height: 110%; */
+  /* text-transform: capitalize; */
+  font-weight: 900;
+  color: #120129;
+}
+
+.learnMore {
+  font-weight: 600;
+  font-family: "Roboto Slab", "Rezvan";
+  color: #120129;
+}
+
+.learnMoreBtn {
+  font-size: 30px;
+  color: #120129;
+  border-radius: 35px;
+  transition: transform ease-in-out 0.6s;
+  padding: 8px 45px;
+  font-family: "Yanone Kaffeesatz", "Estedad";
+}
+
+.learnMoreBtn:hover {
+  transform: scale(1.01);
+  filter: brightness(1.2);
+  filter: drop-shadow(1.5);
+}
+
+/* #contactUsBtn {
+  font-weight: 600;
+  font-family: 'Roboto Slab', serif;
+  transition: ease-in-out 0.3s;
+  color: #ff4a68;
+  background-color: transparent;
+}
+
+#contactUsBtn:hover {
+  background-color: #ff4a68;
+  color: #120129;
+} */
+
+.pictureDiv {
+  transition: ease-in-out 0.3s;
+}
+
+.pictureDiv:hover {
+  transform: scale(1.02);
+}
+
+.collections {
+  transition: ease-in-out 0.3s;
+}
+
+.collections:hover {
+  transform: scale(1.02);
+}
+
+.peaceSignDiv {
+  position: sticky;
+}
+/* .limited {
+  grid-area: 4 / 3 / 5 / 4;
+  justify-content: center;
+  align-items: center;
+}
+.logo {
+  grid-area: 4 / 3 / 5 / 4;
+  display: flex;
+  justify-content: center;
+} */
+
+/* .image {
+  display: block;
+} */
+
+.acapulco {
+  font-family: "Sail", "Estedad";
+  text-shadow: 2px 2px 0px #f5e482, 4px 4px 0px #e6c824, 8px 8px 0px #c0ae08,
+    12px 12px 0px #b4d812, 16px 16px 0px #78e43a, 20px 20px 0px #00c76a,
+    24px 24px 0px #08ada0, 28px 28px 0px #05597a, 32px 32px 0px #310677;
+}
+
+@media only screen and (max-width: 414px) {
+  .acapulco {
+    font-family: "Sail", "Estedad";
+    text-shadow: 0.5px 0.5px 0px #f5e482, 1px 1px 0px #e6c824,
+      1.5px 1.5px 0px #c0ae08, 2px 2px 0px #b4d812, 3px 3px 0px #78e43a,
+      4px 4px 0px #00c76a, 5px 5px 0px #08ada0, 6px 6px 0px #05597a,
+      7px 7px 0px #310677;
+  }
+}
+@media (max-width: 1024px) {
+  .acapulco {
+    font-family: "Sail", "Estedad";
+    text-shadow: 0.5px 0.5px 0px #f5e482, 1px 1px 0px #e6c824,
+      1.5px 1.5px 0px #c0ae08, 2px 2px 0px #b4d812, 3px 3px 0px #78e43a,
+      4px 4px 0px #00c76a, 5px 5px 0px #08ada0, 6px 6px 0px #05597a,
+      7px 7px 0px #310677;
+  }
+}
+@media (max-width: 1024px) {
+  .treePicture {
+    transform: rotateX(180deg);
+    -moz-transform: rotateX(180deg);
+    -o-transform: rotateX(180deg);
+    -webkit-transform: rotateX(180deg);
+  }
+}
+@media only screen and (max-width: 414px) {
+  .treePicture {
+    transform: rotateX(180deg);
+    -moz-transform: rotateX(180deg);
+    -o-transform: rotateX(180deg);
+    -webkit-transform: rotateX(180deg);
   }
 }
 
-.OurWork {
-  font-family: "Oxygen";
-  background-image: repeating-linear-gradient(
-    to left,
-    #f01197 0%,
-    #722ef1 10%,
+.h2-home {
+  font-family: "Roboto Slab", serif;
+  line-height: 130%;
+  color: #120129;
+}
 
-    #4800f1 15%,
-    #3602f2 29%,
-    #c078f0 67%,
-    #de4b9c 100%
-  );
-  background-clip: border-box;
-  background-size: 200% auto;
-  color: #fff;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: textclip 6s linear infinite;
-  display: inline-block;
-}
-.KeslerDiv:hover {
-  cursor: pointer;
-  filter: drop-shadow(1.8);
-  filter: brightness(0.6);
-  transition: ease-in-out 0.3s;
-}
-.KeslerDiv:active {
-  filter: brightness(1.2);
-  scale: 1.2;
-  transition: ease-in-out 0.3s;
-}
-.ChaoDiv:hover {
-  cursor: pointer;
-  filter: drop-shadow(1.8);
-  filter: brightness(0.6);
-  transition: ease-in-out 0.3s;
-}
-.ChaoDiv:active {
-  filter: brightness(1.2);
-  scale: 1.2;
-  transition: ease-in-out 0.3s;
-}
-.GreezDiv:hover {
-  cursor: pointer;
-  filter: drop-shadow(1.8);
-  filter: brightness(0.6);
-  transition: ease-in-out 0.3s;
-}
-.GreezDiv:active {
-  filter: brightness(1.2);
-  scale: 1.2;
-  transition: ease-in-out 0.3s;
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+  margin-top: -2px;
+  margin-bottom: -2px;
 }
 </style>
